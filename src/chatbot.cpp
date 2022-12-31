@@ -58,7 +58,8 @@ ChatBot& ChatBot::operator=(const ChatBot &source)      // Copy assignment opera
 {
     std::cout << "ChatBot Copy Assignment Constructor" << std::endl;   
     
-    if(this != &source){  
+    if(this != &source)
+    {  
         _image= new wxBitmap(*source._image);  
         _currentNode=source._currentNode;  
         _rootNode=source._rootNode;  
