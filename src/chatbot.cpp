@@ -90,7 +90,7 @@ ChatBot::ChatBot(ChatBot &&source)          // Move constructor
 
 ChatBot& ChatBot::operator=(ChatBot &&source)       // Move Operator constructor
 {
-    std::cout << "Move Operator Constructor" << std::endl; 
+    std::cout << "Move Assignment Operator Constructor" << std::endl; 
     if(this != &source){  
         if(source._chatLogic != nullptr){
             _chatLogic = source._chatLogic;
