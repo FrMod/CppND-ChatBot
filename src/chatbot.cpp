@@ -92,25 +92,19 @@ ChatBot& ChatBot::operator=(ChatBot &&source)       // Move Operator constructor
 {
     std::cout << "Move Assignment Operator Constructor" << std::endl; 
     if(this != &source){  
-        if(source._chatLogic != nullptr){
-            _chatLogic = source._chatLogic;
-            _chatLogic->SetChatbotHandle(this);
-        }
-
-        if(source._currentNode != nullptr){
-            _currentNode = source._currentNode;
-        }
-
-        if(source._rootNode != nullptr){
-            _rootNode = source._rootNode;
-        }
+        _chatLogic = source._chatLogic;
+        _chatLogic->SetChatbotHandle(this);
+        _currentNode = source._currentNode;  
+        _rootNode = source._rootNode;
 
         if(source._image != NULL){
             _image = new wxBitmap(*source._image);
         }
-        else{
-            _image = nullptr;
-        }
+
+        source._image = nullptr;
+        source._chatLogic = nullptr;
+        source._currentNode = nullptr;
+        source._rootNode = nullptr;
     }
     return *this;    
 
