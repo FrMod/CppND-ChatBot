@@ -78,11 +78,8 @@ ChatBot::ChatBot(ChatBot &&source)          // Move constructor
     _currentNode = source._currentNode;  
     _rootNode = source._rootNode;
 
-    if(source._image != NULL){
-        _image = new wxBitmap(*source._image);
-    }
-
-    source._image = nullptr;
+    _image = source._image;
+    source._image = NULL;
     source._chatLogic = nullptr;
     source._currentNode = nullptr;
     source._rootNode = nullptr;
@@ -97,11 +94,8 @@ ChatBot& ChatBot::operator=(ChatBot &&source)       // Move Operator constructor
         _currentNode = source._currentNode;  
         _rootNode = source._rootNode;
 
-        if(source._image != NULL){
-            _image = new wxBitmap(*source._image);
-        }
-
-        source._image = nullptr;
+        _image = source._image;
+        source._image = NULL;
         source._chatLogic = nullptr;
         source._currentNode = nullptr;
         source._rootNode = nullptr;
